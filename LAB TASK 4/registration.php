@@ -50,6 +50,30 @@
                         <td colspan="2"><hr></td>
                     </tr>
 					<tr>
+							<td colspan="2">
+								<fieldset>
+									<legend>Gender</legend>
+									<input type="radio" name = "gender">Male
+                   					<input type="radio" name = "gender">Female
+                    				<input type="radio" name = "gender">Other
+								</fieldset>
+							</td>
+					</tr>
+					<tr>
+                        <td colspan="2"><hr></td>
+                    </tr>
+					<tr>
+						<td colspan="2">
+							<fieldset>
+								<legend>Date of Birth</legend>
+								<input type="number"> / <input type="number"> / <input type="number"><i>(dd/mm/yyy)</i>
+							</fieldset>
+						</td>
+					</tr>
+					<tr>
+                        <td colspan="2"><hr></td>
+                    </tr>
+					<tr>
 						<td colspan="2">
 							<input type="submit" name="" value="Submit">
 							<input type="reset" name="" value="Reset">
