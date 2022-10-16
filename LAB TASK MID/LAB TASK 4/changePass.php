@@ -11,7 +11,7 @@
 		}
 	?>
 		<form method="post" action="changePassCheck.php" enctype="">
-			<fieldset>
+			<fieldset style="width: 20%;">
 				<legend><b>Change Password</b></legend>
 				<table>
 					<tr>
@@ -19,11 +19,11 @@
 						<td><input type="text" name="Password" value="" ></td>
 					</tr>
 					<tr>
-						<td>New Password:</td>
+						<td><a style="color:green;">New Password:</a></td>
 						<td><input type="password" name="NewPassword" value="" ></td>
 					</tr>
                     <tr>
-						<td>Confirm Password:</td>
+						<td><a style="color:red;">Confirm Password:</a></td>
 						<td><input type="password" name="ConPassword" value="" ></td>
 					</tr>
                     <tr>
