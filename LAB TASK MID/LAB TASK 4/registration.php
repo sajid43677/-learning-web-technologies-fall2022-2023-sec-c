@@ -11,7 +11,7 @@
 		}
 	?>
 		<form method="post" action="loginCheck.php" enctype="">
-			<fieldset>
+			<fieldset style="width: 40%;">
 				<legend><b>Registration</b></legend>
 				<table>
 					<tr>
