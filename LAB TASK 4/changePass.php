@@ -12,7 +12,7 @@
 	?>
 		<form method="post" action="changePassCheck.php" enctype="">
 			<fieldset>
-				<legend><b>LOGIN</b></legend>
+				<legend><b>Change Password</b></legend>
 				<table>
 					<tr>
 						<td>Current password:</td>

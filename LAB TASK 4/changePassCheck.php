@@ -18,7 +18,7 @@
         header("location:changePass.php");
     }
     else{
-        $_SESSION["validate"] = "Password Change";
+        $_SESSION["validate"] = "Password Changed";
         header("location:changePass.php");
     }
 ?>
