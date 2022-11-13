@@ -1,0 +1,12 @@
+ami akash pathabo
+User interface
+dveloper interface
+Login
+ Registration
+ Faculty page
+ Student page
+ Grade
+ Assignment
+good approch
+ better ui
+ get proper response
