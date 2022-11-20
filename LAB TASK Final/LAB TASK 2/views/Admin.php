@@ -47,7 +47,7 @@
 					<ul align="center" type="square">
 						<li><a href="Dashboard1.php" target="_blank"><h4>Dashboard</h4></a></li><hr>
 						<li><a href="Registration.php" ><h4>Register New Employee</h4></a></li><hr>
-						<li><a href="#" ><h4>Update Employees Profile</h4></a></li><hr>
+						<li><a href="../controller/updateEmp.php" ><h4>Update Employees Profile</h4></a></li><hr>
 						<li><a href="../controller/EmpInfo.php"><h4>Employees Information</h4></a></li><hr>
 						<li><a href="PendLeave.php"><h4>Pending Leave Request</h4></a></li><hr>
 					</ul>
