@@ -51,10 +51,6 @@
         $result = mysqli_query($con, $sql);
         $user = mysqli_fetch_assoc($result);
         
-        if($user != null){
-            return true;
-        }else{
-            return false;
-        }
+        return $user;
     }
 ?>

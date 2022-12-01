@@ -18,6 +18,14 @@
         }
         return $users;
     }
+    function searchApplicantById($user){
+        $con = getConnection();
+        $sql = "select * from leaveinfo where empid='{$user['empid']}'";
+        $result = mysqli_query($con, $sql);
+        $user = mysqli_fetch_assoc($result);
+        return $user;
+        
+    }
     function editapplicant($user){
         $con = getConnection();
         $sql = "UPDATE leaveinfo

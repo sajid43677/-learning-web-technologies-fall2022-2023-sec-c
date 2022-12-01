@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../models/LeaveInfo.php');
     $user['id'] = $_GET['id'];
     $user['type'] = $_GET['type'];

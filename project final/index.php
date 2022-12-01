@@ -1,5 +1,5 @@
 <?php 
 
-    header('location: views/Admin.php');
+    header('location: views/Homepage.php');
 
 ?>
