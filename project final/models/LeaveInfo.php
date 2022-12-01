@@ -1,7 +1,7 @@
 <?php 
     require_once('db.php');
 
-    function inserapplicant($user){
+    function insertapplicant($user){
         $con = getConnection();
         $sql = "insert into leaveinfo values('', '{$user['empid']}', '{$user['date']}', '{$user['duration']}', 'pending')";
         $status = mysqli_query($con, $sql);
