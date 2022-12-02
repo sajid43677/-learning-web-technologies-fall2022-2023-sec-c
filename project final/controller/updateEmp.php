@@ -9,12 +9,13 @@
 
 <head>
     <title>Employee Informations</title>
+	<link rel="stylesheet" href="../style/updateEmp.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
 	<form method="" action="" enctype="">
 
-			<hr><hr>
+			
 
 		<header>
 			<div align= "center">
@@ -22,7 +23,7 @@
 			</div>
 		</header>
 
-			<hr><hr>
+			
 
 		<nav>
 			<div align= "center">
@@ -36,21 +37,22 @@
 			</div>
 			<div align= "right">
 				<a href="../views/Admin.php">Home</a>&ensp;&ensp;
-				<a href="Homepage.php">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 			</div> 
 		</nav>
 
-			<hr><hr><br>
+			<br>
 
 		<main>
-			<fieldset>
-				<legend align="center">Employee Information</legend>
-				<table width=60% align = "center">
+			
+			<div align="center" class="welcome">Employee Information</div>
+				<table width=60% align = "center" id="employee">
                     <tr>
-                        <td >Username</td>
-                        <td>Passowrd</td>
-                        <td>Email</td>
-                        <td>Role</td>
+                        <th >Username</th>
+                        <th>Passowrd</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th colspan="2">Approval</th>
                     </tr>
                     <?php
                         require_once('../models/EmployeeInfo.php');
@@ -60,15 +62,14 @@
 									<td>{$user['password']}</td>
 									<td>{$user['email']}</td>
 									<td>{$user['role']}</td>
-                                    <td><a href=\"editEmp.php?id={$user['empid']}\">edit</a></td>
-                                    <td><a href=\"deleteEmp.php?id={$user['empid']}\">delete</a></td></tr>";
+                                    <td><a href=\"editEmp.php?id={$user['empid']}\"class=\"edit\">edit</a></td>
+                                    <td><a href=\"deleteEmp.php?id={$user['empid']}\"class=\"edit\">delete</a></td></tr>";
 						}
                     ?>
                 </table>
-			</fieldset>
 		</main>
 
-			<br><br><hr><hr>
+			<br><br><hr>
 
 		<footer>
 			<div align= "center">

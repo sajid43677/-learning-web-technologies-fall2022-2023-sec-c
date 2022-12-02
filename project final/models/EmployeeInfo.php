@@ -1,5 +1,6 @@
 <?php 
     require_once('db.php');
+    require_once('LeaveInfo.php');
 
     function insertUser($user){
         $con = getConnection();
@@ -11,6 +12,8 @@
     function deleteUser($user){
         $con = getConnection();
         $sql = "DELETE FROM employeeinfo WHERE empid = {$user['id']};";
+        $status = mysqli_query($con, $sql);
+        $sql = "DELETE FROM leaveinfo WHERE empid = {$user['id']};";
         $status = mysqli_query($con, $sql);
         return $status;
     }

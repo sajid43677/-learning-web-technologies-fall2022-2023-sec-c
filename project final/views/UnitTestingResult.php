@@ -2,11 +2,11 @@
 
 <head>
     <title>Project Developer Homepage</title>
-	<link rel="stylesheet" href="../style/ProjectDeveloper.css">
+	<link rel="stylesheet" href="../style/UnitTestingResult.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
-	<form method="" action="" enctype="">
+	<form method="post" action="UnitTestingResult.php" enctype="">
 
 
 		<header>
@@ -35,15 +35,16 @@
 			<br>
 
 		<main>
-				<div align="center" class="welcome">Welcome To Prohect Developer Homepage</div>
-					<div class="container">
-						<a class="a1" href="Dashboard1.php" target="_blank"><h4>Dashboard</h4></a>
-						<a class="a1" href="#" ><h4>Pending Task</h4></a>
-						<a class="a1" href="WorkupdateDeveloper.php"><h4>Work Update</h4></a>
-						<a class="a1" href="DevLeave.php"><h4>Make A Leave Request</h4></a>
-						<a class="a1" href="UnitTestingResult.php" ><h4>Update Unit Testing Results</h4></a>
-						<a class="a1" href="#"><h4>Unit Testing Rechecking Request</h4></a>
-					</div>	
+				<div align="center" class="welcome">Unit Testing Result</div>
+                <table align= "center" width = "90%" id = "employee">
+                    <tr>
+                        <th>Project Reqirements</th>
+                        <th>State(Click to mark as done)</th>
+                    </tr>
+                        <?php
+
+                        ?>
+                </table>	
 		</main>
 
 			<br><br><hr>

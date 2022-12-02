@@ -9,12 +9,11 @@
 
 <head>
     <title>Employee Informations</title>
+	<link rel="stylesheet" href="../style/EmpInfo.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
 	<form method="" action="" enctype="">
-
-			<hr><hr>
 
 		<header>
 			<div align= "center">
@@ -22,7 +21,7 @@
 			</div>
 		</header>
 
-			<hr><hr>
+
 
 		<nav>
 			<div align= "center">
@@ -36,37 +35,34 @@
 			</div>
 			<div align= "right">
 				<a href="../views/Admin.php">Home</a>&ensp;&ensp;
-				<a href="Homepage.php">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 			</div> 
 		</nav>
 
-			<hr><hr><br>
 
 		<main>
-			<fieldset>
-				<legend align="center">Employee Information</legend>
-				<table width=60% align = "center">
-                    <tr>
-                        <td >Username</td>
-                        <td>Passowrd</td>
-                        <td>Email</td>
-                        <td>Role</td>
-                    </tr>
-                    <?php
-                        require_once('../models/EmployeeInfo.php');
-						$users = allUser();
-						foreach($users as $user){
-							echo "	<tr><td>{$user['username']}</td>
-									<td>{$user['password']}</td>
-									<td>{$user['email']}</td>
-									<td>{$user['role']}</td></tr>";
-						}
-                    ?>
-                </table>
-			</fieldset>
+			<div align="center" class="welcome">Employee Information</div>
+			<table width=60% align = "center" id="employee">
+				<tr>
+					<th >Username</th>
+					<th>Passowrd</th>
+					<th>Email</th>
+					<th>Role</th>
+				</tr>
+				<?php
+					require_once('../models/EmployeeInfo.php');
+					$users = allUser();
+					foreach($users as $user){
+						echo "	<tr><td>{$user['username']}</td>
+								<td>{$user['password']}</td>
+								<td>{$user['email']}</td>
+								<td>{$user['role']}</td></tr>";
+					}
+				?>
+			</table>
 		</main>
 
-			<br><br><hr><hr>
+			<br><br><hr>
 
 		<footer>
 			<div align= "center">

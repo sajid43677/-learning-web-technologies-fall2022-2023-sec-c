@@ -9,20 +9,18 @@
 
 <head>
     <title>Admin Homepage</title>
+	<link rel="stylesheet" href="../style/Admin.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
 	<form method="" action="" enctype="">
 
-			<hr><hr>
-
 		<header>
 			<div align= "center">
-			<h1><img src= "#" alt= "" width= "">Software Project Development Application</h1>
+			<h1><img src= "#" alt= "" width= "" >Software Project Development Application</h1>
 			</div>
 		</header>
 
-			<hr><hr>
 
 		<nav>
 			<div align= "center">
@@ -35,26 +33,24 @@
 				&ensp;&ensp; 
 			</div>
 			<div align= "right">
-				<a href="Homepage.php">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 			</div> 
 		</nav>
 
-			<hr><hr><br>
+			<br>
 
 		<main>
-			<fieldset>
-				<legend align="center">Welcome To Admin Homepage</legend>
-					<ul align="center" type="square">
-						<li><a href="Dashboard1.php" target="_blank"><h4>Dashboard</h4></a></li><hr>
-						<li><a href="Registration.php" ><h4>Register New Employee</h4></a></li><hr>
-						<li><a href="../controller/updateEmp.php" ><h4>Update Employees Profile</h4></a></li><hr>
-						<li><a href="../controller/EmpInfo.php"><h4>Employees Information</h4></a></li><hr>
-						<li><a href="PendLeave.php"><h4>Pending Leave Request</h4></a></li><hr>
-					</ul>
-				</fieldset>
+			<div align="center" class="welcome">Welcome To Admin Homepage</div>
+				<div class="container">
+					<a class="a1" href="Dashboard1.php" target="_blank"><h4>Dashboard</h4></a>
+					<a class="a1" href="Registration.php" ><h4>Register New Employee</h4></a>
+					<a class="a1" href="../controller/updateEmp.php" ><h4>Update Employees Profile</h4></a>
+					<a class="a1" href="../controller/EmpInfo.php"><h4>Employees Information</h4></a>
+					<a class="a1" href="PendLeave.php"><h4>Pending Leave Request</h4></a>
+				</div>	
 		</main>
 
-			<br><br><hr><hr>
+			<br><br><hr>
 
 <footer>
 	<div align= "center">
