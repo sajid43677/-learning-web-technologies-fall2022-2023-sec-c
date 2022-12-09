@@ -5,9 +5,9 @@
     $email = $_POST['email'];
     $roles = $_POST['roles'];
 
-    if($username == "" || $password == "" || $email == ""){
+    if($username == "" || $password == "" || $email == "" || strlen($password) < 4){
         //echo "null username/password/email";
-        header('location: registration.php?err=null');
+        header('location: ../views/registration.php?err=null');
 
     }else {
         /* $user = ['username'=> $username, "password"=> $password, "email"=> $email];

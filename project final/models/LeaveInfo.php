@@ -22,8 +22,11 @@
         $con = getConnection();
         $sql = "select * from leaveinfo where empid='{$user['empid']}'";
         $result = mysqli_query($con, $sql);
-        $user = mysqli_fetch_assoc($result);
-        return $user;
+        $users = [];
+        while($row = mysqli_fetch_assoc($result)){
+            array_push($users,$row);
+        }
+        return $users;
         
     }
     function editapplicant($user){

@@ -8,12 +8,12 @@
 
 <head>
     <title>Pending Leave Request</title>
+	<link rel="stylesheet" href="../assets/style/PendLeave.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
 	<form method="post" action="../controller/CheckPendLeave.php" enctype="">
 
-			<hr><hr>
 
 		<header>
 			<div align= "center">
@@ -21,7 +21,6 @@
 			</div>
 		</header>
 
-			<hr><hr>
 
 		<nav>
 			<div align= "center">
@@ -35,48 +34,44 @@
 			</div>
 			<div align= "right">
 				<a href="Admin.php">Home</a>&ensp;&ensp;
-				<a href="Homepage.php">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="../views/Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 			</div> 
 		</nav>
 
-			<hr><hr><br>
+			<br>
 
 		<main>
-			<fieldset>
-				<legend align="center">Pending Leave Reaquest</legend>
-					<ul align="center" type="square">
-                    <table height=90% width=60% align = "center">
-                        <tr>
-                            <td >Employee Name</td>
-                            <td>Applied leave date</td>
-                            <td>Duration</td>
-                            <td>Approval</td>
-                        </tr>
-                        <?php
-                            require_once('../models/LeaveInfo.php');
-                            require_once('../models/EmployeeInfo.php');
-							$users = allapplicant();
-                            foreach($users as $user){
-								$user['id'] = $user['empid'];
-								$emp = searchUserById($user);
-                                echo "<tr><td>{$emp['username']}</td>";
-                                echo "<td>".$user['date']."</td><td>".$user['duration']."</td>";
-								if($user['approval'] == "pending"){
-									echo "<td><a href=\"../controller/CheckPendLeave.php?id={$user['leaveid']}&type=approved\">Approve</a>
-									<a href=\"../controller/CheckPendLeave.php?id={$user['leaveid']}&type=rejected\">Reject</a></td></tr>";
-								}
-								else{
-									echo "<td>{$user['approval']}</td></tr>";
-								}
-        
-                            }
-                        ?>
-                    </table>
-					</ul>
-			</fieldset>
+			<div align="center" class="welcome">Employee Information</div>
+				<table height=90% width=60% align = "center" id="employee">
+					<tr>
+						<th>Employee Name</th>
+						<th>Applied leave date</th>
+						<th>Duration(Days)</th>
+						<th>Approval</th>
+					</tr>
+					<?php
+						require_once('../models/LeaveInfo.php');
+						require_once('../models/EmployeeInfo.php');
+						$users = allapplicant();
+						foreach($users as $user){
+							$user['id'] = $user['empid'];
+							$emp = searchUserById($user);
+							echo "<tr><td>{$emp['username']}</td>";
+							echo "<td>".$user['date']."</td><td>".$user['duration']."</td>";
+							if($user['approval'] == "pending"){
+								echo "<td><a class=\"edit\" href=\"../controller/check/CheckPendLeave.php?id={$user['leaveid']}&type=approved\">Approve</a>
+								<a class=\"edit\" href=\"../controller/check/CheckPendLeave.php?id={$user['leaveid']}&type=rejected\">Reject</a></td></tr>";
+							}
+							else{
+								echo "<td>{$user['approval']}</td></tr>";
+							}
+	
+						}
+					?>
+				</table>
 		</main>
 
-			<br><br><hr><hr>
+			<br><br><hr>
 
 		<footer>
 			<div align= "center">

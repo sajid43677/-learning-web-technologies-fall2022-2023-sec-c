@@ -1,18 +1,13 @@
-<?php 
-    if(isset($_GET['err'])){
-        echo "null username/password";
-    }
-?>
-
 <html>
 
 <head>
     <title>Registration Page</title>
+    <!-- <link rel="stylesheet" href="../assets/style/Registration.css"> -->
 </head>
 
 <body bgcolor="LIGHTGRAY">
 
-        <hr><hr>
+   
 
     <header>
         <div align= "center">
@@ -20,40 +15,39 @@
         </div>
     </header>
 
-        <hr><hr><br>
+        <br>
 
     <nav>
         <div align= "right">
             <a href="Admin.php">Home</a>
             &ensp;&ensp;
-            <a href="Homepage.php">Logout</a>
+            <a href="Homepage.php" class= "logout">Logout</a>
             &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
         </div>        
     </nav>
 
-        <hr><hr><br>
+      <br>
 
-    <main>
+
         <form method="post" action="../controller/regCheck.php" >
-            <fieldset>
-                <legend align="center"><b><h2>Registration</h2></b></legend>
-                <table align="center">
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" value=""></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" value=""></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="email" name="email" value=""></td>
-                    </tr>
-                    <tr>
-                        <td>Role</td>
-                        <td>
-                            <label for="roles">Choose your Role:</label>
+            <fieldset><div align="center" class="welcome"><h3>Registraion</h3></div></fieldset>
+            <div align="center">
+                <div>
+                    Username<br>
+                    <input type="text" id="user" name="username"  value= ""> <br><br>
+                </div>
+                <div>
+                        Password <br>
+                        <input type="password" id="password" name="password" value="" onkeyup="passVal()"><br>
+                        <a style="font-size: small;" id="message"></a>
+                    </div>
+                    <div>
+                        Email<br>
+                        <input type="email" name="email" value="" ><br><br>
+                    </div>
+                   
+                    <div>
+                             Role<br>
                             <select name="roles" id="roles">
                                 <option value="Analyzer">Project Analyzer</option>
                                 <option value="Manager">Project Manager</option>
@@ -62,29 +56,31 @@
                                 <option value="Technical_Writer">Project Documentor</option>
                                 <option value="Client">Client</option>
                             </select>
-                        </td>
-                    </tr>
-                    <tr>
+                        
+                    </div>
+                    <div>
                         <td colspan="2"><hr></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" name="submit" value="Submit"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <?php 
+                    </div>
+                    <div>
+                        <input type="submit" name="submit" value="Submit" class="submit">
+                    </div>
+                    <div>
+                    <?php 
                                 if(isset($_GET['succ'])){
                                     echo "<b><h4>Employee Added</h4></b>";
                                 }
-                            ?>
-                        </td>
-                    </tr>
-                </table>
-                    <br><br>
-            </fieldset>
+                               
+                                if(isset($_GET['err'])){
+                                    echo "null username/password or short password!";
+                                }
+
+                            ?>   
+                    </div>
+            </div>
+                    <br><br><hr>
+
+
         </form>
-    </main>
 
     <footer>
         <div align= "center">
@@ -99,6 +95,40 @@
         </div>
         
     </footer>
+
+<script >
+    function passVal(){
+        let pass =  document.getElementById('password').value;
+        let cn = 0;
+        let nn = 0;
+        let spn = 0;
+        for(let i = 0; i < pass.length; i++){
+            if((pass[i] >= 'A' && pass[i] <= 'Z') || (pass[i] >= 'a' && pass[i] <= 'z')){
+                cn = cn + 1;
+            }
+            else if((pass[i] > '9' || pass[i] < '0') && pass[i] != ' ' ){
+                spn = spn + 1;
+            }
+            else{
+                nn = nn + 1;
+            }
+        }
+        if(pass.length < 4){
+            document.getElementById('message').innerHTML = "Password length is too short";
+        }
+        else if((cn == 0 || nn == 0) && spn == 0){
+            document.getElementById('message').innerHTML = "Password strength is weak";
+        }
+        else if((cn == 0 && spn > 0) || (cn > 0 && spn == 0)){
+            document.getElementById('message').innerHTML = "Password strength is medium";
+        }
+        else{
+            document.getElementById('message').innerHTML = "Password strength is strong";
+        }
+
+    }
+    
+</script>
 
 </body>
 </html>

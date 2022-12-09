@@ -2,7 +2,7 @@
 
 <head>
     <title>Project Developer Homepage</title>
-	<link rel="stylesheet" href="../style/ProjectDeveloper.css">
+	<link rel="stylesheet" href="../assets/style/ProjectDeveloper.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">

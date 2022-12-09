@@ -9,7 +9,7 @@
 
 <head>
     <title>Employee Informations</title>
-	<link rel="stylesheet" href="../style/EmpInfo.css">
+	<link rel="stylesheet" href="../assets/style/EmpInfo.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">

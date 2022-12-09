@@ -20,8 +20,9 @@
 
     function editUser($user){
         $con = getConnection();
+        $user['tmp'] = 'username';
         $sql = "UPDATE employeeinfo
-                SET  username = '{$user['username']}', email = '{$user['email']}', role = '{$user['role']}'
+                SET  {$user['tmp']} = '{$user['username']}', email = '{$user['email']}', role = '{$user['role']}'
                 WHERE empid = '{$user['id']}';";
         $status = mysqli_query($con, $sql);
         return $status;

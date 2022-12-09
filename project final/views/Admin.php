@@ -9,10 +9,10 @@
 
 <head>
     <title>Admin Homepage</title>
-	<link rel="stylesheet" href="../style/Admin.css">
+	<link rel="stylesheet" href="../assets/style/Admin.css">
 </head>
 
-<body bgcolor="LIGHTGRAY">
+<body>
 	<form method="" action="" enctype="">
 
 		<header>

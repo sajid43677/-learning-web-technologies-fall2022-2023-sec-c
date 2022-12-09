@@ -9,7 +9,7 @@
 
 <head>
     <title>Employee Informations</title>
-	<link rel="stylesheet" href="../style/updateEmp.css">
+	<link rel="stylesheet" href="../assets/style/updateEmp.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
@@ -37,7 +37,7 @@
 			</div>
 			<div align= "right">
 				<a href="../views/Admin.php">Home</a>&ensp;&ensp;
-				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="../views/Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 			</div> 
 		</nav>
 

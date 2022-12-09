@@ -2,7 +2,7 @@
 
 <head>
     <title>Project Developer Homepage</title>
-	<link rel="stylesheet" href="../style/UnitTestingResult.css">
+	<link rel="stylesheet" href="../assets/style/UnitTestingResult.css">
 </head>
 
 <body bgcolor="LIGHTGRAY">
@@ -42,7 +42,21 @@
                         <th>State(Click to mark as done)</th>
                     </tr>
                         <?php
-
+							require_once('../models/EmployeeInfo.php');
+							require_once('../models/taskinfomodel.php');
+							session_start();
+							$user['id'] = $_SESSION['empid'];
+							$user = searchUserById($user);
+							$tasks = searchreqdev($user);
+							foreach($tasks as $task){
+								if($task['devprog'] == 'worked'){
+									echo "	<tr><td>{$task['task']}</td>
+										<td><a href=\"../controller/CheckUnitTestingResult.php?id={$task['taskid']}\" style=\"background-color:green;
+										color:white;
+										padding: 5px;
+										border: 2px solid black;\" >edit</a></td></tr>";
+									}
+							}
                         ?>
                 </table>	
 		</main>
@@ -50,7 +64,7 @@
 			<br><br><hr>
 
 		<footer>
-			<div align= "center">
+			<div align= "center" >
 				<a href="#">FAQ</a> &ensp;&ensp;
 				<a href="#">Terms and Conditions</a> &ensp;&ensp;
 				<a href="#">Privacy Policy</a> &ensp;&ensp;
