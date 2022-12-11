@@ -57,4 +57,26 @@
         
         return $user;
     }
+
+    function allmanager(){
+        $con = getConnection();
+        $sql = "select * from employeeinfo where role = 'Manager'";
+        $result = mysqli_query($con, $sql);
+        $users = [];
+        while($row = mysqli_fetch_assoc($result)){
+            array_push($users,$row);
+        }
+        return $users;
+    }
+
+    function allanalyzer(){
+        $con = getConnection();
+        $sql = "select * from employeeinfo where role = 'Analyzer'";
+        $result = mysqli_query($con, $sql);
+        $users = [];
+        while($row = mysqli_fetch_assoc($result)){
+            array_push($users,$row);
+        }
+        return $users;
+    }
 ?>

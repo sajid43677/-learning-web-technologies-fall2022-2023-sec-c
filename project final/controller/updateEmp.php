@@ -4,6 +4,12 @@
         unset($_GET);
     }
 ?>
+<?php
+	session_start();
+	if(!isset($_SESSION['empid'])){
+		header('location: login.php');
+	}
+?>
 
 <!DOCTYPE html>
 
@@ -58,12 +64,14 @@
                         require_once('../models/EmployeeInfo.php');
 						$users = allUser();
 						foreach($users as $user){
-							echo "	<tr><td>{$user['username']}</td>
+							if($user['role'] != 'Admin'){
+								echo "	<tr><td>{$user['username']}</td>
 									<td>{$user['password']}</td>
 									<td>{$user['email']}</td>
 									<td>{$user['role']}</td>
                                     <td><a href=\"editEmp.php?id={$user['empid']}\"class=\"edit\">edit</a></td>
                                     <td><a href=\"deleteEmp.php?id={$user['empid']}\"class=\"edit\">delete</a></td></tr>";
+								}
 						}
                     ?>
                 </table>

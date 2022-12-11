@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Request For Leave</title>
+    <title>Project Prototype</title>
 </head>
 
 <body bgcolor="LIGHTGRAY">
@@ -43,37 +43,21 @@
 
 		<main>
 			<fieldset>
-				<legend align="center">Requesting A Leave</legend>
-					<ul align="center" type="square">
-						<li><h4>
-                        <label for="Days">Choose your Day count of vacation:</label>
-                            <select name="Days" id="Roles">
-                                <option value="1">1 Day</option>
-                                <option value="2">2 Day</option>
-                                <option value="3">3 Day</option>
-                                <option value="4">4 Day</option>
-                                <option value="5">5 Day</option>
-                                <option value="5+">More than 5 day</option>
-                            </select>
-                        </h4></li>
-						<li><h4>
-							<label for="Date">Choose your starting day of vacation:</label>
-							<input type = "date" name="date" value="">
-						</h4></li>
-						<hr>
-                        <input type="submit" name="submit" value="Submit">
-						<?php 
-							if(isset($_GET['succ'])){
-								echo "<h4>Request Sent<h4>";
-							}
-							if(isset($_GET['err'])){
-								echo "<h4>Your previous vacation is not checked yet!<h4>";
-							}
-?>
-					</ul>
+				<legend align="center">Project prototype</legend>
+					<?php
+                        session_start();
+                        require_once("../models/EmployeeInfo.php");
+                        require_once("../models/projectinfomodel.php");
+                        require_once("../models/taskinfomodel.php");
+                        $user['id'] = $_SESSION['empid'];
+                        $user = searchUserById($user);
+                        $task = searchprojectnamedev($user);
+                        $project = searchbyprojectname($task);
+                        echo "{$project['projectname']}";
+                        echo "<img src=\"{$project['projectprototype']}\" alt=\"project prototype\">";
+                    ?>
 			</fieldset>
 		</main>
-
 			<br><br><hr><hr>
 
 		<footer>

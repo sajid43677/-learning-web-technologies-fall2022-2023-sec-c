@@ -4,6 +4,12 @@
         unset($_GET);
     }
 ?>
+<?php
+	session_start();
+	if(!isset($_SESSION['empid'])){
+		header('location: login.php');
+	}
+?>
 
 <!DOCTYPE html>
 

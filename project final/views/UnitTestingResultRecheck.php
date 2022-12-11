@@ -8,7 +8,7 @@
 
 <head>
     <title>Project Developer Homepage</title>
-	<link rel="stylesheet" href="../assets/style/UnitTestingResults.css">
+	<link rel="stylesheet" href="../assets/style/UnitTestingResultRecheck.css">
 	<!-- <style>
 		.checkedit{
 			background-color:green;
@@ -54,7 +54,7 @@
 			<br>
 
 		<main>
-				<div align="center" class="welcome">Unit Testing Result</div>
+				<div align="center" class="welcome">Unit Testing Recheck</div>
                 <table align= "center" width = "90%" id = "employee">
                     <tr>
                         <th>Project Reqirements</th>
@@ -68,9 +68,9 @@
 							$user = searchUserById($user);
 							$tasks = searchreqdev($user);
 							foreach($tasks as $task){
-								if($task['devprog'] == 'worked'){
+								if($task['devprog'] == 'recheck'){
 									echo "	<tr><td>{$task['task']}</td>
-										<td><a href=\"../controller/CheckUnitTestingResult.php?id={$task['taskid']}\" class = \"checkedit\">Done</a></td></tr>";
+										<td><a href=\"../controller/CheckUnitTestingResultRecheck.php?id={$task['taskid']}\" class = \"checkedit\">Done</a></td></tr>";
 									}
 							}
                         ?>

@@ -1,8 +1,12 @@
 <?php
+session_start();
     if(isset($_GET['succ'])){
         echo "User Added";
         unset($_GET);
     }
+	if(!isset($_SESSION['empid'])){
+		header('location: login.php');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +50,7 @@
 					<a class="a1" href="Registration.php" ><h4>Register New Employee</h4></a>
 					<a class="a1" href="../controller/updateEmp.php" ><h4>Update Employees Profile</h4></a>
 					<a class="a1" href="../controller/EmpInfo.php"><h4>Employees Information</h4></a>
+					<a class="a1" href="assignment.php"><h4>Assign Project Manager and Analyzer</h4></a>
 					<a class="a1" href="PendLeave.php"><h4>Pending Leave Request</h4></a>
 				</div>	
 		</main>

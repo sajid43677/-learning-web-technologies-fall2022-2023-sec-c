@@ -1,92 +1,97 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['empid'])){
+		header('location: login.php');
+	}
+?>
 <!DOCTYPE html>
+
 <head>
-    <title>Work Update for Developer</title>
+    <title>Project Developer Homepage</title>
+	<link rel="stylesheet" href="../assets/style/WorkupdateDeveloper.css">
+	<!-- <style>
+		.checkedit{
+			background-color:green;
+			color:white;
+			padding: 5px;
+			border: 2px solid black;
+		}
+		.checkedit:hover{
+			background-color:white;
+			color:black;
+			transition: ease .5s;
+		}
+	</style> -->
 </head>
 
 <body bgcolor="LIGHTGRAY">
-    <form method="POST" action="">
+	<form method="post" action="UnitTestingResult.php" enctype="">
 
-        <header>
-            <div align= "center">
-            <h1><img src= "#" alt= "" width= "">Software Project Development Application</h1>
-            </div>
-        </header>
 
-            <hr><hr>
+		<header>
+			<div align= "center">
+			<h1><img src= "#" alt= "" width= "">Software Project Development Application</h1>
+			</div>
+		</header>
 
-        <nav>
-            <div align= "center">
-                &ensp;&ensp; 
-                <a href="#" >Achivements</a>
-                &ensp;&ensp; 
-                <a href="#">Contact us</a>
-                &ensp;&ensp; 
-                <a href="#">Support</a> 
-                &ensp;&ensp; 
-            </div>
-            <div align= "right"> 
-                <a href="ProjectDeveloper.php">Home</a> &ensp;&ensp;
-                <a href="Homepage.php">Logout</a> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  
-            </div>        
-        </nav>
 
-            <hr><hr><br>
+		<nav>
+			<div align= "center">
+				&ensp;&ensp; 
+				<a href="#" >Achivements</a>
+				&ensp;&ensp;    
+				<a href="#">Contact us</a>
+				&ensp;&ensp; 
+				<a href="#">Support</a> 
+				&ensp;&ensp; 
+			</div>
+			<div align= "right">
+				<a href="ProjectDeveloper.php">Home</a> &ensp;&ensp;
+				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+			</div> 
+		</nav>
 
-        <main>
-            <table align= "center">
-                <tr>
-                    <td>
-                        <br><br>
-                        <fieldset>
-                        <legend align= "center"><b>Pending Tasks</b></legend>
-                        
-                        <!-- file reading -->
-                        <br><br><br>                    
-                        </fieldset>
-                    </td>
-                    <td align= "center">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</td>
-                    <td>
-                        <br><br>
-                        <fieldset>
-                        <legend align= "center"><b>Completed Tasks</b></legend>
-                        <!-- will read the file for description--> <br><br><br>
-                        </fieldset>
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td colspan="3" align="center">
-                        <hr><br><br>
-                        <input type="submit" name="submit1" value="Processing">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" align="center">
-                        <hr><br><br>
-                        <input type="submit" name="submit2" value="Completed">
-                    </td>
-                </tr>
-            </table>
-            
+			<br>
 
-        </main>
+		<main>
+				<div align="center" class="welcome">Work Update</div>
+                <table align= "center" width = "90%" id = "employee">
+                    <tr>
+                        <th>Project Reqirements</th>
+                        <th>State(Click to mark as done)</th>
+                    </tr>
+                        <?php
+							require_once('../models/EmployeeInfo.php');
+							require_once('../models/taskinfomodel.php');
+							session_start();
+							$user['id'] = $_SESSION['empid'];
+							$user = searchUserById($user);
+							$tasks = searchreqdev($user);
+							foreach($tasks as $task){
+								if($task['devprog'] == 'pending'){
+									echo "	<tr><td>{$task['task']}</td>
+										<td><a href=\"../controller/checkWorkupdateDeveloper.php?id={$task['taskid']}\" class = \"checkedit\">Done</a></td></tr>";
+									}
+							}
+                        ?>
+                </table>	
+		</main>
 
-            <br><br><hr><hr>
+			<br><br><hr>
 
-        <footer>
-            <div align= "center">
-                <a href="#">FAQ</a> &ensp;&ensp;
-                <a href="#">Terms and Conditions</a> &ensp;&ensp;
-                <a href="#">Privacy Policy</a> &ensp;&ensp;
-                <a href="#">And More</a> &ensp;&ensp; &ensp;&ensp;
-            </div>
-                <br>
-            <div align= "center" >
-                <a href="#">&copy; 2023 | Company name </a> &ensp;&ensp;
-            </div>  
-        </footer>
-    
-    </form>
-    
+		<footer>
+			<div align= "center" >
+				<a href="#">FAQ</a> &ensp;&ensp;
+				<a href="#">Terms and Conditions</a> &ensp;&ensp;
+				<a href="#">Privacy Policy</a> &ensp;&ensp;
+				<a href="#">And More</a> &ensp;&ensp; &ensp;&ensp;
+			</div>
+			<br>
+			<div align= "center" >
+				<a href="#">&copy; 2023 | Company name </a> &ensp;&ensp;
+			</div>
+		</footer>
+		
+	</form>
 </body>
 </html>

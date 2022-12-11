@@ -1,25 +1,19 @@
 <?php
-    if(isset($_GET['succ'])){
-        echo "User Added";
-        unset($_GET);
-    }
-?>
-<?php
 	session_start();
 	if(!isset($_SESSION['empid'])){
 		header('location: login.php');
 	}
 ?>
-
 <!DOCTYPE html>
 
 <head>
-    <title>Employee Informations</title>
-	<link rel="stylesheet" href="../assets/style/EmpInfo.css">
+    <title>Dev work upload</title>
 </head>
 
 <body bgcolor="LIGHTGRAY">
-	<form method="" action="" enctype="">
+	<form method="POST" action="../controller/checkDevWorkUpload.php" enctype="multipart/form-data">
+
+			<hr><hr>
 
 		<header>
 			<div align= "center">
@@ -27,7 +21,7 @@
 			</div>
 		</header>
 
-
+			<hr><hr>
 
 		<nav>
 			<div align= "center">
@@ -40,35 +34,22 @@
 				&ensp;&ensp; 
 			</div>
 			<div align= "right">
-				<a href="../views/Admin.php">Home</a>&ensp;&ensp;
-				<a href="Homepage.php" class="logout">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+				<a href="ProjectDeveloper.php">Home</a>&ensp;&ensp;
+				<a href="Homepage.php">Logout</a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;	
 			</div> 
 		</nav>
 
+			<hr><hr><br>
 
 		<main>
-			<div align="center" class="welcome">Employee Information</div>
-			<table width=60% align = "center" id="employee">
-				<tr>
-					<th >Username</th>
-					<th>Passowrd</th>
-					<th>Email</th>
-					<th>Role</th>
-				</tr>
-				<?php
-					require_once('../models/EmployeeInfo.php');
-					$users = allUser();
-					foreach($users as $user){
-						echo "	<tr><td>{$user['username']}</td>
-								<td>{$user['password']}</td>
-								<td>{$user['email']}</td>
-								<td>{$user['role']}</td></tr>";
-					}
-				?>
-			</table>
+			<fieldset align= "center ">
+				<legend align="center">Upload work</legend>
+                    Work File: <input type="file" name="image" value="" /> <br><br>
+                    <input type="submit" name="submit" value="Submit" />
+			</fieldset>
 		</main>
 
-			<br><br><hr>
+			<br><br><hr><hr>
 
 		<footer>
 			<div align= "center">
@@ -82,8 +63,8 @@
 				<a href="#">&copy; 2023 | Company name </a> &ensp;&ensp;
 			</div>
 		</footer>
-
+		
 	</form>
-	
+
 </body>
 </html>

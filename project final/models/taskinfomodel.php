@@ -74,5 +74,22 @@
         return $status;
      }
 
+     function devworkupdate($task){
+        $con = getConnection();
+        $sql = "update taskinfo set devprog = 'worked' where taskid = '{$task['id']}'";
+        $status = mysqli_query($con, $sql);
+        
+        echo 'data inserted!';
+        return $status;
+     }
+     function searchprojectnamedev($user){
+        $con = getConnection();
+        $sql = "select * from taskinfo where developer = '{$user['username']}'";
+        $status = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($status);
+        return $row;
+     }
+
+
     
 ?>

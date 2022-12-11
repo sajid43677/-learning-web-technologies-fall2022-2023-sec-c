@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['empid'])){
+		header('location: login.php');
+	}
+?>
 <!DOCTYPE html>
 
 <head>
@@ -38,11 +44,12 @@
 				<div align="center" class="welcome">Welcome To Prohect Developer Homepage</div>
 					<div class="container">
 						<a class="a1" href="Dashboard1.php" target="_blank"><h4>Dashboard</h4></a>
-						<a class="a1" href="#" ><h4>Pending Task</h4></a>
 						<a class="a1" href="WorkupdateDeveloper.php"><h4>Work Update</h4></a>
-						<a class="a1" href="DevLeave.php"><h4>Make A Leave Request</h4></a>
 						<a class="a1" href="UnitTestingResult.php" ><h4>Update Unit Testing Results</h4></a>
-						<a class="a1" href="#"><h4>Unit Testing Rechecking Request</h4></a>
+						<a class="a1" href="UnitTestingResultRecheck.php"><h4>Unit Testing Rechecking Request</h4></a>
+						<a class="a1" href="DevWorkUpload.php" ><h4>Upload work paper</h4></a>
+						<a class="a1" href="devProjectPrototype.php" ><h4>View Project Prototype</h4></a>
+						<a class="a1" href="DevLeave.php"><h4>Make A Leave Request</h4></a>
 					</div>	
 		</main>
 
