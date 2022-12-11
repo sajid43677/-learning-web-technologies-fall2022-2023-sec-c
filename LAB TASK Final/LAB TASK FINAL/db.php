@@ -47,4 +47,15 @@
         return $status;
     }
 
+    function alluser(){
+        $con = getConnection();
+        $sql = "select * from users";
+        $result = mysqli_query($con, $sql);
+        $users = [];
+        while($row = mysqli_fetch_assoc($result)){
+            array_push($users,$row);
+        }
+        return $users;
+    }
+
 ?>
