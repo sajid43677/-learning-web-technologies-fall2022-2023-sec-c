@@ -89,6 +89,14 @@
         $row = mysqli_fetch_assoc($status);
         return $row;
      }
+     function devrecheckupdate($task){
+        $con = getConnection();
+        $sql = "update taskinfo set devprog = 'pending' where taskid = '{$task['id']}'";
+        $status = mysqli_query($con, $sql);
+        
+        echo 'data inserted!';
+        return $status;
+     }
 
 
     

@@ -11,13 +11,13 @@
     $role = $user['role'];
     $_SESSION['empid'] = $user['empid'];
     if($role == 'Analyzer'){
-        header('location: ../views/ProjectAnalyzer.php');
+        header('location: ../../views/ProjectAnalyzer.php');
     }
     if($role == 'Manager'){
         header('location: ../views/ProjectManager.php');
     }
     if($role =='Developer'){
-        header('location: ../views/ProjectDeveloper.php');
+        header('location: ../views/developer/ProjectDeveloper.php');
     }
     if($role == 'Tester'){
         header('location: ../views/ProjectTester.php');
@@ -29,6 +29,6 @@
         header('location: ../views/Client.php');
     }
     if($role == 'Admin'){
-        header('location: ../views/Admin.php');
+        header('location: ../views/admin/Admin.php');
     }
 ?>
